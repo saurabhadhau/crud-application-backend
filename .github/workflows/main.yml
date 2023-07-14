@@ -44,4 +44,4 @@ jobs:
           sudo docker stop backend_container || true
           sudo docker rm backend_container || true
           sudo docker pull nacromancer858/backend-image:${{ steps.set_tag.outputs.tag }}
-          sudo docker run -d -p 80:80 --name backend_container nacromancer858/backend-image:${{ steps.set_tag.outputs.tag }}
+          sudo docker run -d -p 3333:3333 --name backend_container nacromancer858/backend-image:${{ steps.set_tag.outputs.tag }}
