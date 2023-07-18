@@ -40,8 +40,7 @@ jobs:
         username: ${{ secrets.USER_NAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          sudo chmod 666 /var/run/docker.sock
           sudo docker stop backend_container || true
           sudo docker rm backend_container || true
           sudo docker pull nacromancer858/backend-image:${{ steps.set_tag.outputs.tag }}
-          sudo docker run -d -p 3333:3333 --name backend_container nacromancer858/backend-image:${{ steps.set_tag.outputs.tag }}
+          sudo docker run -d --name backend_container nacromancer858/backend-image:${{ steps.set_tag.outputs.tag }}
